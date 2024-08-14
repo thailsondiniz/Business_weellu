@@ -1,3 +1,3 @@
 class ApiRota {
-  static String baseApi = "http://10.0.0.122:3000/";
+  static String baseApi = "http://10.0.0.143:3000/";
 }

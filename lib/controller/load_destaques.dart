@@ -12,15 +12,3 @@ class LoadDestaques {
     }
   }
 }
-
-
-  // void Destaques() async {
-  //   Uri url = Uri.parse('http://10.0.0.122:3000/itens');
-  //   http.Response response = await http.get(url);
-  //   if (response.statusCode == 200) {
-  //     setState(() {
-  //       dados = jsonDecode(response.body);
-  //       print(dados);
-  //     });
-  //   }
-  // }

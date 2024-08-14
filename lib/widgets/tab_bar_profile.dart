@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_project_business/colors/colors.dart';
 import 'package:flutter_project_business/model/item_class.dart';
+import 'package:flutter_project_business/route/api_route.dart';
 import 'package:http/http.dart' as http;
 
 class TabBarProfile extends StatefulWidget {
@@ -15,7 +16,7 @@ class _TabBarProfileState extends State<TabBarProfile>
     with SingleTickerProviderStateMixin {
   List<Item> catalogItems = [];
   void loadCatalogItems() async {
-    Uri url = Uri.parse('http://10.0.0.122:3000/itens');
+    Uri url = Uri.parse('${ApiRota.baseApi}itens');
     http.Response response = await http.get(url);
     if (response.statusCode == 200) {
       final List<dynamic> decodedData = json.decode(response.body);
@@ -30,7 +31,7 @@ class _TabBarProfileState extends State<TabBarProfile>
 
   List<dynamic> data = [];
   void loadCategoryItems() async {
-    Uri url = Uri.parse('http://10.0.0.122:3000/CategoriaSelecionada');
+    Uri url = Uri.parse('${ApiRota.baseApi}CategoriaSelecionada');
     http.Response response = await http.get(url);
 
     if (response.statusCode == 200) {
@@ -43,7 +44,7 @@ class _TabBarProfileState extends State<TabBarProfile>
 
   List<dynamic> descricoes = [];
   void loadDescricaoBusiness() async {
-    Uri url = Uri.parse('http://10.0.0.122:3000/DescricaoNegocio');
+    Uri url = Uri.parse('${ApiRota.baseApi}DescricaoNegocio');
     http.Response response = await http.get(url);
 
     if (response.statusCode == 200) {
@@ -55,7 +56,7 @@ class _TabBarProfileState extends State<TabBarProfile>
   }
 
   void deleteItem(String itemId, String imageUrl) async {
-    final url = Uri.parse('http://10.0.0.122:3000/itens/$itemId');
+    final url = Uri.parse('${ApiRota.baseApi}/itens/$itemId');
 
     final response = await http.delete(url);
 

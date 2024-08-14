@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter_project_business/model/category_class.dart';
+import 'package:flutter_project_business/route/api_route.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_project_business/category_page/category_page_home.dart';
@@ -25,7 +26,7 @@ class _ListViewCategoryState extends State<ListViewCategory> {
   List<dynamic> dadosCategory = [];
 
   void categoria() async {
-    Uri url = Uri.parse('http://10.0.0.122:3000/categorias');
+    Uri url = Uri.parse('${ApiRota.baseApi}categorias');
     http.Response response = await http.get(url);
 
     if (response.statusCode == 200) {

@@ -29,7 +29,7 @@ class CategoryHome extends StatefulWidget {
 class _CategoryHomeState extends State<CategoryHome> {
   List<Item> catalogItems = [];
   void loadCatalogItems() async {
-    Uri url = Uri.parse('http://10.0.0.122:3000/itens');
+    Uri url = Uri.parse('${ApiRota.baseApi}itens');
     http.Response response = await http.get(url);
     if (response.statusCode == 200) {
       final List<dynamic> decodedData = json.decode(response.body);
